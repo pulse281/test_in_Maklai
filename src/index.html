@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <form action="" class="form">
+            <label>
+                <fieldset class="form__label"><legend>Перше число</legend>
+                    <input id="first-number" type="number" placeholder="Введіть число" class="form__inp">
+                </fieldset>
+            </label>
+            <select class="form__sel" name="operation" id="">
+                <option value="/">/</option>>
+                <option value="*">*</option>
+                <option value="-">-</option>
+                <option value="+">+</option>
+            </select>
+            <label>
+                <fieldset class="form__label"><legend>Друге число</legend>
+                    <input id="second-number" type="number" placeholder="Введіть число" class="form__inp">
+                </fieldset>
+            </label>
+
+            <div class="form__output">
+            </div>
+            <button class="form__sub">Результат</button>
+        </form>
+    </div>    
+
+    
+    <div class="layout layout_active">
+        <div class="modal">
+            Добрий день. <br> Вас вітає програма для математичних обчислень чисел, зараз програма може проводити операцію з двома числами. 
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
