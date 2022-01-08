@@ -1,24 +1,17 @@
-'use strict'
+'use strict';
 
 const calc = () => {
     const firstNum = document.querySelector('#first-number'),
-      secondNum = document.querySelector('#second-number'),
-      select = document.querySelector('.form__sel'),
-      output = document.querySelector('.form__output'),
-      submit = document.querySelector('.form__sub');
+          secondNum = document.querySelector('#second-number'),
+          select = document.querySelector('.form__sel'),
+          output = document.querySelector('.form__output'),
+          submit = document.querySelector('.form');
 
-    const getVal = (arg) => {
-        return Number(arg.value);
-    };
-    
-    submit.addEventListener('click', (e) => {
-        e.preventDefault();
 
-        output.textContent = calculate(firstNum, secondNum, select.value);
-        
-    });
 
-    function calculate(first, second, operator) {
+    const getVal = (arg) =>  Number(arg.value);
+
+    const calculate = (first, second, operator) => {
         let res;
         switch (operator) {
             case '/':
@@ -38,8 +31,15 @@ const calc = () => {
                 res = getVal(first) + getVal(second);
                 break;
             }
-        return    Math.round(res); 
-    }
+        return Math.round(res); 
+    };
+    
+    submit.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        output.textContent = calculate(firstNum, secondNum, select.value);
+    });
+
 };
 
 export default calc;

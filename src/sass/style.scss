@@ -1,0 +1,9 @@
+//@import 'libs/bootstrap-reboot.min';
+@import '../../node_modules/normalize.css/normalize';
+*{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@import 'blocks/cals.scss';
+@import 'blocks/form';
+@import 'blocks/modal.scss';

@@ -9,30 +9,32 @@
 </head>
 <body>
     
-    <div class="wrapper">
-        <form action="" class="form">
-            <label>
-                <fieldset class="form__label"><legend>Перше число</legend>
-                    <input id="first-number" type="number" placeholder="Введіть число" class="form__inp">
-                </fieldset>
-            </label>
-            <select class="form__sel" name="operation" id="">
-                <option value="/">/</option>>
-                <option value="*">*</option>
-                <option value="-">-</option>
-                <option value="+">+</option>
-            </select>
-            <label>
-                <fieldset class="form__label"><legend>Друге число</legend>
-                    <input id="second-number" type="number" placeholder="Введіть число" class="form__inp">
-                </fieldset>
-            </label>
-
-            <div class="form__output">
-            </div>
-            <button class="form__sub">Результат</button>
-        </form>
-    </div>    
+    <section class="calc">
+        <div class="calc__wrapper">
+            <form action="" class="form">
+                <label>
+                    <fieldset class="form__label"><legend>Перше число</legend>
+                        <input name="num1" id="first-number" type="number" placeholder="Введіть число" class="form__inp" required>
+                    </fieldset>
+                </label>
+                <select class="form__sel" name="operation" id="">
+                    <option value="/">/</option>>
+                    <option value="*">*</option>
+                    <option value="-">-</option>
+                    <option value="+">+</option>
+                </select>
+                <label>
+                    <fieldset class="form__label"><legend>Друге число</legend>
+                        <input name="num2" id="second-number" type="number" placeholder="Введіть число" class="form__inp" required>
+                    </fieldset>
+                </label>
+    
+                <div class="form__output">
+                </div>
+                <button class="form__sub">Результат</button>
+            </form>
+        </div>    
+    </section>
 
     
     <div class="layout layout_active">

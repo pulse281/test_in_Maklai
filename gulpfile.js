@@ -4,7 +4,8 @@ const gulp = require("gulp");
 const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 
-const cleanCSS = require('gulp-clean-css');
+const sass = require('gulp-sass')(require('sass'));
+const cleanCSS = require('gulp-clean-css'); 
 const autoprefixer = require('gulp-autoprefixer');
 const rename = require("gulp-rename");
 const htmlmin = require('gulp-htmlmin');
@@ -52,7 +53,7 @@ gulp.task("watch", () => {
     
     gulp.watch("./src/js/**/*.js", gulp.parallel("build-js")); 
     gulp.watch("src/*.html").on('change', gulp.parallel("html"));
-    gulp.watch("src/css/**/*.+css", gulp.parallel("styles"));
+    gulp.watch("src/sass/**/*.+(scss||sass||css)", gulp.parallel("styles"));
 });
 
 gulp.task("build-prod-js", () => {
@@ -91,10 +92,12 @@ gulp.task('html', () => {
 });
 
 gulp.task('styles', () => {
-  return gulp.src("src/css/**/*.css")
-      .pipe(rename({suffix: '.min', prefix: ''}))
+  return gulp.src("src/sass/**/*.+(scss||sass)")
+      .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+      .pipe(rename({suffix: '.min', prefixs: ''}))
       .pipe(autoprefixer())
       .pipe(cleanCSS({compatibility: 'ie8'}))
+      .pipe(sass({includePaths: require("node-normalize-scss").includePaths}))
       .pipe(gulp.dest("dist/css"))
       .pipe(browsersync.stream());
 });
